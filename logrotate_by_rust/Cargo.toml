@@ -1,0 +1,17 @@
+[package]
+name = "logrotate_by_rust"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+fs2 = "0.4.3"
+serde_yml = "0.0.10"
+serde = { version = "1.0", features = ["derive"] }
+flexi_logger = "0.27.4"
+log = "0.4.20"
+chrono = "0.4.31"
+chrono-tz = "0.10.0"
+anyhow = "1.0.79"
+getset = "0.1.2"
+derive-new = "0.6.0"
+serde_json = "1.0"
