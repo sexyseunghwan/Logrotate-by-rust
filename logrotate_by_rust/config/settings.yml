@@ -1,23 +1,30 @@
-# name: "Vector"
-# version: "0.0.1"
-
-# components:
-#   - type: "source"
-#     name: "file"
-#   - type: "sink"
-#     name: "elasticsearch"
-
-#target.log.path: "test"
-
 # 로그대상이 되는 디렉토리
-log_path: "C:\\Users\\user\\Desktop\\private\\work_code\\elastic_monitor_rust\\elastic_monitor_rust\\*.log"
+- component: "test" 
+  log_path: "C:\\Users\\user\\Desktop\\vector_testr\\"
+  file_name_pattern: "*.log"
+  
+  # 로그 보존기간
+  log_retention_period: 3
 
-# 로그 보존기간
-log_retention_period: 3
+  # 압축유무
+  compression_yn: false
 
-# 압축유무
-compression_yn: false
+  # 로그 로테이팅 기준시간
+  # Asia/Seoul, US::Alaska ...
+  # time_zone: "Asia/Seoul"
+  time_zone: "UTC"
 
-# 로그 로테이팅 기준시간
-# Asia/Seoul, US::Alaska ...
-time_zone: "Asia/Seoul"
+
+# - component: "test2" 
+#   log_path: "C:\\Users\\user\\Desktop\\private\\work_code\\elastic_monitor_rust\\elastic_monitor_rust\\"
+#   file_name_pattern: "*.log"
+
+#   # 로그 보존기간
+#   log_retention_period: 3
+
+#   # 압축유무
+#   compression_yn: false
+
+#   # 로그 로테이팅 기준시간
+#   # Asia/Seoul, US::Alaska ...
+#   time_zone: "Asia/Seoul"

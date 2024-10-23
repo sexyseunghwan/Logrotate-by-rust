@@ -27,15 +27,33 @@
 // }
 
 mod handler;
+use handler::logrotate_handler::*;
+
 mod service;
+use service::comprs_service::*;
+use service::file_service::*;
+
 mod utils;
+use utils::logger_utils::*;
+
 mod model;
 
 mod common;
 use common::*;
 
+
 fn main() {
     
+    /* 전역 로거설정 */
+    set_global_logger();
+    info!("Start Program");
+
+    /* 의존주입 */
+    let comprs_service = ComrsServicePub::new();
+    let file_service = FileServicePub::new();
+    let main_handler = LogrotateHandler::new(comprs_service, file_service);
+    
+    main_handler.log_rotate_main_handler().unwrap();
     //let log_file_path = "C:\\Users\\user\\Desktop\\vector\\logs\\vector.log";
     
     // loop {
